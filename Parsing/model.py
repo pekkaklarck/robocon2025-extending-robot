@@ -1,11 +1,23 @@
-import astpretty
+import ast
 import sys
+try:
+    import astpretty    # Third-party module to provide better debugging.
+except ImportError:
+    astpretty = None
 
+from robot.api import TestSuite
 from robot.api.parsing import get_model, KeywordCall, ModelVisitor, Tags, Token
 
 
-model = get_model(sys.argv[1])
-astpretty.pprint(model)
+path = sys.argv[1]
+model = get_model(path)
+
+print(f"1. Model created from file '{path}':\n")
+if astpretty:
+    astpretty.pprint(model)
+else:
+    print(ast.dump(model, include_attributes=True))
+print()
 
 
 class Fixer(ModelVisitor):
@@ -21,5 +33,10 @@ class Fixer(ModelVisitor):
             kw.value = 'Log to console'
 
 
+print("2. Modify model and save data back to disk.\n")
 Fixer().visit(model)
 model.save()
+
+print('3. Execute the modified model:\n')
+suite = TestSuite.from_model(model)
+suite.run()
