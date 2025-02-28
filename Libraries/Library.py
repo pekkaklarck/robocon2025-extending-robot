@@ -23,8 +23,7 @@ class Direction(Enum):
     RIGHT = auto()
 
 
-@library(scope='SUITE',
-         converters={EuroDate: EuroDate.from_string})
+@library(scope='SUITE', converters={EuroDate: EuroDate.from_string})
 class Library:
 
     def __init__(self, state='INITIAL'):
@@ -37,8 +36,7 @@ class Library:
         print(f'New state is {self.state}.')
 
     @keyword
-    def conversion(self, number: Decimal, path: Path,
-                   duration: timedelta):
+    def conversion(self, number: Decimal, path: Path, duration: timedelta):
         print(number * 2)
         print(path.name)
         print(duration.total_seconds())
