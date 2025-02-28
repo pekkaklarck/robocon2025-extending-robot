@@ -1,3 +1,11 @@
+"""Pre-run modifier to select only every Xth test for execution.
+
+Usage:
+    robot --prerunmodifier SelectEveryXth.py[:x][:start] path/to/tests.robot
+
+Also demonstrates modifying tests and using the new GROUP syntax programmatically.
+"""
+
 from robot.api import SuiteVisitor
 from robot.running import TestCase, TestSuite
 
