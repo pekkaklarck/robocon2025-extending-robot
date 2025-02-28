@@ -3,6 +3,9 @@
 This repository contains training material related to the Extending Robot Framework
 workshop organized as part of [RoboCon](https://robocon.io/) on February 12, 2025.
 
+The repository initially contained materials needed to get started, but the current
+state represents what was done during the workshop.
+
 ## Installations
 
 - Python 3.10 or newer. Python 3.8 or 3.9 will work if you cannot upgrade.
@@ -28,8 +31,8 @@ repository and clone that.
 
 ## Topics
 
-Covered topics are listed below and each topic has a dedicated directory for
-materials related to it.
+Covered topics are listed below. Each topic has a dedicated directory with
+a README file containing more information.
 
 - [Libraries](Libraries)
 - [Listeners](Listeners)
