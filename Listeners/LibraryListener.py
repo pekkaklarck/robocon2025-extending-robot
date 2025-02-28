@@ -2,7 +2,7 @@ from robot.api.deco import keyword, library
 
 
 @library(listener='SELF')
-class Library:
+class LibraryListener:
 
     def __init__(self):
         self.test = None
